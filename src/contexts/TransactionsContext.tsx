@@ -1,6 +1,6 @@
-import { ReactNode, createContext, useEffect, useState } from "react"
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
-interface Transactions {
+interface Transaction {
   id: number;
   description: string;
   type: 'income' | 'outcome';
@@ -9,30 +9,33 @@ interface Transactions {
   createdAt: string;
 }
 
-interface TransactionsContextType {
-  transactions: Transactions[];
+interface TransactionContextType {
+  transactions: Transaction[];
 }
-
-export const TransactionsContext = createContext({} as TransactionsContextType)
 
 interface TransactionsProviderProps {
   children: ReactNode
 }
 
+export const TransactionsContext = createContext({} as TransactionContextType);
+
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
-  const [transactions, setTransactions] = useState<Transactions[]>([])
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  async function loadTransactions() {
+    const response = await fetch('http://localhost:3333/transactions')
+    const data = await response.json()
+
+    setTransactions(data)
+  }
 
   useEffect(() => {
-    fetch('http://localhost:3000/transactions')
-    .then(res => res.json())
-    .then(data => {
-      setTransactions(data)
-    })      
-  }, [])
+    loadTransactions()
+  }, []);
 
   return (
     <TransactionsContext.Provider value={{ transactions }}>
       {children}
     </TransactionsContext.Provider>
-  )
+  );
 }
