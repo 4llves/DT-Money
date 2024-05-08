@@ -23,6 +23,22 @@
       "category": "Educação",
       "price": 2000,
       "createdAt": "2024-01-16T02:01:46.504Z"
+    },
+    {
+      "description": "Venda site lalala",
+      "price": 10000,
+      "category": "Vendas",
+      "type": "income",
+      "createdAt": "2024-05-08T02:42:29.197Z",
+      "id": 4
+    },
+    {
+      "description": "Açaí",
+      "price": 20,
+      "category": "Alimento",
+      "type": "outcome",
+      "createdAt": "2024-05-08T02:54:50.309Z",
+      "id": 5
     }
   ]
 }
