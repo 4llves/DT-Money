@@ -39,6 +39,22 @@
       "type": "outcome",
       "createdAt": "2024-05-08T02:54:50.309Z",
       "id": 5
+    },
+    {
+      "description": "test",
+      "price": 10,
+      "category": "Gabriel",
+      "type": "outcome",
+      "createdAt": "2024-05-08T19:56:13.182Z",
+      "id": 6
+    },
+    {
+      "description": "Impostinho do Amor",
+      "price": 20000,
+      "category": "SOS",
+      "type": "outcome",
+      "createdAt": "2024-05-08T19:59:59.936Z",
+      "id": 7
     }
   ]
 }
